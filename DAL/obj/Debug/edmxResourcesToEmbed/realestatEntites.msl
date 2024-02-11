@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="realestats_dbModelStoreContainer" CdmEntityContainer="realestats_dbEntities">
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="realestats_dbModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="realestats_dbModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="realestats_dbModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="realestats_dbModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typerealstat_table">
+      <EntityTypeMapping TypeName="realestats_dbModel.typerealstat_table">
+        <MappingFragment StoreEntitySet="typerealstat_table">
+          <ScalarProperty Name="type_fr" ColumnName="type_fr" />
+          <ScalarProperty Name="type_ar" ColumnName="type_ar" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="realestats_dbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="realestat_table">
+      <EntityTypeMapping TypeName="realestats_dbModel.realestat_table">
+        <MappingFragment StoreEntitySet="realestat_table">
+          <ScalarProperty Name="validated_by" ColumnName="validated_by" />
+          <ScalarProperty Name="validated_at" ColumnName="validated_at" />
+          <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+          <ScalarProperty Name="numero_telephone" ColumnName="numero_telephone" />
+          <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+          <ScalarProperty Name="chemin_photo_principale" ColumnName="chemin_photo_principale" />
+          <ScalarProperty Name="chemin_photo3" ColumnName="chemin_photo3" />
+          <ScalarProperty Name="chemin_photo2" ColumnName="chemin_photo2" />
+          <ScalarProperty Name="chemin_photo1" ColumnName="chemin_photo1" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="id_publisher" ColumnName="id_publisher" />
+          <ScalarProperty Name="photo_realestat" ColumnName="photo_realestat" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+          <ScalarProperty Name="location_realestat" ColumnName="location_realestat" />
+          <ScalarProperty Name="update_at" ColumnName="update_at" />
+          <ScalarProperty Name="added_at" ColumnName="added_at" />
+          <ScalarProperty Name="description_realestat" ColumnName="description_realestat" />
+          <ScalarProperty Name="libelle_realestat" ColumnName="libelle_realestat" />
+          <ScalarProperty Name="id_realestat" ColumnName="id_realestat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tmp_realestat_table">
+      <EntityTypeMapping TypeName="realestats_dbModel.tmp_realestat_table">
+        <MappingFragment StoreEntitySet="tmp_realestat_table">
+          <ScalarProperty Name="validated_by" ColumnName="validated_by" />
+          <ScalarProperty Name="validated_at" ColumnName="validated_at" />
+          <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+          <ScalarProperty Name="numero_telephone" ColumnName="numero_telephone" />
+          <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+          <ScalarProperty Name="chemin_photo_principale" ColumnName="chemin_photo_principale" />
+          <ScalarProperty Name="chemin_photo3" ColumnName="chemin_photo3" />
+          <ScalarProperty Name="chemin_photo2" ColumnName="chemin_photo2" />
+          <ScalarProperty Name="chemin_photo1" ColumnName="chemin_photo1" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="id_publisher" ColumnName="id_publisher" />
+          <ScalarProperty Name="photo_realestat" ColumnName="photo_realestat" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+          <ScalarProperty Name="location_realestat" ColumnName="location_realestat" />
+          <ScalarProperty Name="update_at" ColumnName="update_at" />
+          <ScalarProperty Name="added_at" ColumnName="added_at" />
+          <ScalarProperty Name="description_realestat" ColumnName="description_realestat" />
+          <ScalarProperty Name="libelle_realestat" ColumnName="libelle_realestat" />
+          <ScalarProperty Name="id_realestat" ColumnName="id_realestat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,119 @@
+﻿@model IEnumerable<CORE.DtoRealEstat>
+
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["error"] != null)
+{
+
+
+    <div class="alert alert-danger col-md-2 col-md-offset-5" id="msgError">
+        @TempData["error"].ToString()
+    </div>
+}
+@if (TempData["success"] != null)
+{
+
+    <div class="alert alert-success col-md-2 col-md-offset-5" id="msgSuccess">
+        @TempData["success"].ToString()
+    </div>
+}
+<div class="row">
+
+    <div class="product">
+        <div class="product-img">
+            <div class="product-label">
+               @Resource.MyPublications
+                @*<span class="sale">-30%</span>*@
+                @*   @if(o.added_at.Equals( DateTime.Now)){*@
+                <span class="sale">
+                    @Model.Count()
+                </span>
+                @*   }*@
+            </div>
+        </div>
+    </div>
+</div>
+<hr />  
+
+        <div class="container-fluid">
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+                        <div id="tab2" class="tab-pane fade in active">
+                            <div class="products-slick" data-nav="#slick-nav-1">
+                                @foreach (var o in Model)
+                                {
+
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="@o.cheminPhotoPrincipale" height="150" class="img-responsive">
+                                            <div class="product-label">
+                                                @*<span class="sale">-30%</span>*@
+                                                @*   @if(o.added_at.Equals( DateTime.Now)){*@
+                                                <span class="new">@o.added_at</span>
+                                                @*   }*@
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">@o.libelle_type_realestat</p>
+                                            <h3 class="product-name"><a href="#">@o.libelle_realestat</a></h3>
+                                            <h4 class="product-price">
+                                                @o.price
+
+                                                @*<del class="product-old-price">@o.price</del>*@
+
+
+                                            </h4>
+                                            @*<div class="product-rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>*@
+                                            <div class="product-btns">
+                                                @*<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>*@
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <a class="add-to-cart-btn" href="/Home/Details?id_realestat=@o.id_realestat"><span class="fa fa-eye"></span> التفاصبل </a>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+                                }
+
+                            </div>
+
+                            <div id="slick-nav-1" class="products-slick-nav" style="background: #4c7690;"></div>
+
+                        </div>
+                        <!-- /tab -->
+                    </div>
+                </div>
+            </div>
+            <!-- /Products tab & slick -->
+
+        </div>
+
+
+
+        @section Scripts{
+
+            @*<script>
+                    $(document).ready(function () {
+                        var msg = document.getElementById("msgSuccess").value;
+                        alertify.success(msg);
+
+                    });
+                </script>*@
+
+        }

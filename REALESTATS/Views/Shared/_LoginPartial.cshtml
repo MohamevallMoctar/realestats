@@ -1,0 +1,70 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+<ul class="header-links pull-right navbar-right">
+
+    <li>
+        @*<p> <strong>@Resource.SearchAction</strong></p>*@
+        <form action="/Home/Filter" class="form-inline" method="post" id="searchBar" style="display: -webkit-inline-box !important;  padding: 0rem !important;">
+
+            <input class="" name="criteria" type="text" id="searchInput" style="display: none;" placeholder="@Resource.SearchAction @Resource.Here" />
+
+            <button class="" onclick="submitSearch()" id="btnSearch"><i class="fa fa-search"></i> </button>
+
+        </form>
+
+    </li>
+
+
+
+
+    <li>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { lang = "ar" })">  <img src="~/template/img/ar.jpg" class="img-responsive" width="20" height="20" /> </a>
+
+    </li>
+    <li>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { lang = "fr" })">   <img src="~/template/img/fr-ca.jpg" class="img-responsive" width="20" height="20" /> </a>
+
+    </li>
+    <li>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { lang = "en" })">   <img src="~/template/img/en.jpg" class="img-responsive" width="20" height="20" /> </a>
+
+    </li>
+
+
+    <li>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+            @*<li>
+                    @Html.ActionLink("  " + User.Identity.GetUserName() +  "   مرحبا  ", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>*@
+
+
+        <li class="header-links"><a href="javascript:document.getElementById('logoutForm').submit()" style="color: #D10024; height:15px !important;"><i class="fa fa-sign-out"></i> @Resource.SignOut </a></li>
+
+    }
+     
+
+    </ul>
+}
+else
+{
+<ul class="header-links pull-right">
+
+    <li>
+
+        <a href="@Url.Action("ChangeLanguage", "Home", new { lang = "ar" })">  <img src="~/template/img/ar.jpg" class="img-circle" width="15" height="15" /> </a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { lang = "fr" })">  <img src="~/template/img/fr.jpg" class="img-circle" width="15" height="15" /> </a>
+        <a href="@Url.Action("ChangeLanguage", "Home", new { lang = "en" })">  <img src="~/template/img/en.jpg" class="img-circle" width="15" height="15" /> </a>
+
+    </li>
+    @*<li><a href="/Account/Register"><i class="fa fa-pencil-square"></i>  @Resource.SignUp</a></li>*@
+    <li><a href="/Account/Login"><i class="fa fa-sign-in"></i> @Resource.SignIn </a></li>
+
+
+
+</ul>
+}

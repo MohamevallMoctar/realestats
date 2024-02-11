@@ -1,0 +1,74 @@
+﻿@using REALESTATS.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Se connecter";
+}
+
+<h2 class="text-ar">تسجيل الدخول </h2>
+<div class="col-lg-6 col-lg-offset-3">
+
+    @*<div class="col-md-8">
+        <section id="loginForm">*@
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.NumeroTelephone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.NumeroTelephone, "", new { @class = "text-danger" })
+            </div>
+
+            <label class="control-label-ar col-md-2">
+                 @Resource.Phone
+            </label>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label-ar col-md-2">
+                 @Resource.Password
+            </label>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        <label class="RemeberMe">
+                            تذكرني
+                        </label>
+                    </div>*@
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 add-to-cart">
+                <button type="submit" value="دخول" class="btn-rnd-success" > @Resource.SignIn</button>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("تسجيل", "Register")
+        </p>
+        @* Activez ceci une fois que vous avez activé la confirmation du compte pour la fonctionnalité de réinitialisation du mot de passe
+            <p>
+                @Html.ActionLink("Vous avez oublié votre mot de passe ?", "ForgotPassword")
+            </p>*@
+    }
+    <!--</section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">-->
+    @*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+    <!--</section>
+    </div>-->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

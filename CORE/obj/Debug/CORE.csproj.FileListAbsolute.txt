@@ -1,0 +1,6 @@
+C:\Users\wafasoft\source\repos\REALESTATS\CORE\bin\Debug\CORE.dll
+C:\Users\wafasoft\source\repos\REALESTATS\CORE\bin\Debug\CORE.pdb
+C:\Users\wafasoft\source\repos\REALESTATS\CORE\obj\Debug\CORE.csproj.CoreCompileInputs.cache
+C:\Users\wafasoft\source\repos\REALESTATS\CORE\obj\Debug\CORE.dll
+C:\Users\wafasoft\source\repos\REALESTATS\CORE\obj\Debug\CORE.pdb
+C:\Users\wafasoft\source\repos\REALESTATS\CORE\obj\Debug\CORE.csprojAssemblyReference.cache

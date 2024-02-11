@@ -1,0 +1,284 @@
+﻿@model  REALESTATS.Models.ModelRealEstat
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2> </h2>
+@if (TempData["error"] != null)
+{
+
+
+    <div class="alert alert-danger col-md-4 col-md-offset-5" id="msgError">
+        @TempData["error"].ToString()
+    </div>
+}
+@if (TempData["success"] != null)
+{
+
+    <div class="alert alert-success col-md-4 col-md-offset-5" id="msgSuccess">
+        @TempData["success"].ToString()
+    </div>
+}
+
+<div class="col-lg-6 col-lg-offset-3">
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @enctype = "multipart/form-data",  @class = "", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <h4> @Resource.AddPublication   </h4>
+         
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.libelle_realestat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.libelle_realestat, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.Publication
+                </label>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.description_realestat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.description_realestat, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.Description
+                </label>
+            </div>
+
+            @*<div class="form-group">
+
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.added_at, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.added_at, "", new { @class = "text-danger" })
+                    </div>
+                    <label class="control-label-ar col-md-4">
+                        تاريخ الإضافة
+                    </label>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.update_at, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.update_at, "", new { @class = "text-danger" })
+                    </div>
+                    <label class="control-label-ar col-md-4">
+                        تاريخ التحديث
+                    </label>
+                </div>*@
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.location_realestat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.location_realestat, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.Location
+                </label>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.owner, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.owner, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.Owner
+                </label>
+            </div>
+
+                        <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.numero_telephone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.numero_telephone, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.Phone
+                </label>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control", @type ="number", @min ="0" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.Price
+                </label>
+            </div>
+
+            
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    <select class="form-control" name="isPayed">
+                        <option value="O">@Resource.Yes </option>
+                        <option value="N">@Resource.Non </option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.is_payed, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.isPayed
+                </label>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.type_realestat, new SelectList(ViewBag.listTypeRealStat, "id_type", "type_ar"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.type_realestat, "", new { @class = "text-danger" })
+                </div>
+                <label class="control-label-ar col-md-4">
+                    @Resource.TypePublication
+                </label>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label class="labelfile col-md-8" for="photoPrincipale"><input type="file" name="photoPrincipale" id="photoPrincipale" accept="image" class="inputfile">@Resource.PictureChoice</label>
+                    <div> 
+                        <img id="phPrinPrev" src="#" alt="" width="30" height="30" class="img-circle img-rounded" />
+                    </div>
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.photoPrincipale, "", new { @class = "text-danger" })
+                    <label class="control-label-ar col-md-4">
+                        @Resource.MainPhoto
+                    </label>
+                </div>
+
+                <div class="form-group">
+
+                    @*<div class="col-md-8">*@
+                    @*<input type="file" name="photo1" />*@
+                    <div class="col-md-8">
+                        <label class="labelfile col-md-8" for="photo1"><input type="file" name="photo1" id="photo1" accept="image/*" class="inputfile">@Resource.PictureChoice</label>
+                        
+                        <div>
+                            <img id="ph1Prev" src="#" alt="" width="30" height="30" class="img-circle img-rounded" />
+                        </div>
+                    </div>
+
+                        @*@Html.EditorFor(model => model.photo1, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.photo1, "", new { @class = "text-danger" })
+                        @*</div>*@
+                        <label class="control-label-ar col-md-4">
+                            @Resource.Photo1
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+
+                        @*<div class="col-md-8">*@
+                        @*<input type="file" name="photo2" />*@
+                        <div class="col-md-8">
+                            <label class="labelfile col-md-8" for="photo2"><input type="file" name="photo2" id="photo2" accept="image" class="inputfile">@Resource.PictureChoice</label>
+                            
+                            <div>
+                                <img id="ph2Prev" src="#" alt="" width="30" height="30" class="img-circle img-rounded" />
+                            </div>
+                        </div>
+
+                            @*@Html.EditorFor(model => model.photo2, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.photo2, "", new { @class = "text-danger" })
+                            @*</div>*@
+                            <label class="control-label-ar col-md-4">
+                                @Resource.Photo2
+                            </label>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            @*<div class="col-md-8">*@
+                            @*<input type="file" name="photo3" />*@
+                            <div class="col-md-8">
+                                <label class="labelfile col-md-8" for="photo3"><input type="file" name="photo3" id="photo3" accept="image" class="inputfile">@Resource.PictureChoice</label>
+                                <div>
+                                    <img id="ph3Prev" src="#" alt="" width="30" height="30" class="img-circle img-rounded" />
+                                </div>
+                            </div>
+
+                                @*@Html.EditorFor(model => model.photo3, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.photo3, "", new { @class = "text-danger" })
+                                @*</div>*@
+                                <label class="control-label-ar col-md-4">
+                                    @Resource.Photo3
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                @*<div class="pull-left">*@
+
+                                <div class="col-md-offset-2 col-md-10 add-to-cart">
+                                    <button type="submit" value="إضافة" class="btn-rnd-success"><span class="fa fa-save"></span> @Resource.SaveAction</button>
+                                </div>
+                            </div>
+
+                            }
+
+                        </div>
+
+<div class="row">
+    <div>
+        <a href="/Home/Index" class="btn btn-default"> @Resource.ReturnAction </a>
+    </div>
+</div>
+                        
+
+                        @section Scripts{
+
+                            <script>
+                                $(document).ready(function () {
+                                    var msg = document.getElementById("msgError").value;
+
+                                    alertify.success(msg);
+
+                                });
+
+
+                                photoPrincipale.onchange = evt => {
+                                    const [file] = photoPrincipale.files
+                                    if (file) {
+                                        phPrinPrev.src = URL.createObjectURL(file)
+                                    }
+                                }
+                                photo1.onchange = evt => {
+                                    const [file] = photo1.files
+                                    if (file) {
+                                        ph1Prev.src = URL.createObjectURL(file)
+                                    }
+                                }
+                                photo2.onchange = evt => {
+                                    const [file] = photo2.files
+                                    if (file) {
+                                        ph2Prev.src = URL.createObjectURL(file)
+                                    }
+                                }
+                                photo3.onchange = evt => {
+                                    const [file] = photo3.files
+                                    if (file) {
+                                        ph3Prev.src = URL.createObjectURL(file)
+                                    }
+                                }
+                            </script>
+
+                        }

@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="realestats_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="realestat_table">
+          <Key>
+            <PropertyRef Name="id_realestat" />
+          </Key>
+          <Property Name="id_realestat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="libelle_realestat" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_realestat" Type="nvarchar(max)" />
+          <Property Name="added_at" Type="datetime" />
+          <Property Name="update_at" Type="datetime" />
+          <Property Name="location_realestat" Type="nvarchar" MaxLength="50" />
+          <Property Name="added_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="photo_realestat" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_publisher" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_type" Type="int" />
+          <Property Name="chemin_photo1" Type="nvarchar(max)" />
+          <Property Name="chemin_photo2" Type="nvarchar(max)" />
+          <Property Name="chemin_photo3" Type="nvarchar(max)" />
+          <Property Name="chemin_photo_principale" Type="nvarchar(max)" />
+          <Property Name="is_payed" Type="varchar" MaxLength="1" />
+          <Property Name="numero_telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_valid" Type="nvarchar" MaxLength="1" />
+          <Property Name="validated_at" Type="datetime" />
+          <Property Name="validated_by" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tmp_realestat_table">
+          <Key>
+            <PropertyRef Name="id_realestat" />
+          </Key>
+          <Property Name="id_realestat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="libelle_realestat" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_realestat" Type="nvarchar(max)" />
+          <Property Name="added_at" Type="datetime" />
+          <Property Name="update_at" Type="datetime" />
+          <Property Name="location_realestat" Type="nvarchar" MaxLength="50" />
+          <Property Name="added_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="photo_realestat" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_publisher" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_type" Type="int" />
+          <Property Name="chemin_photo1" Type="nvarchar(max)" />
+          <Property Name="chemin_photo2" Type="nvarchar(max)" />
+          <Property Name="chemin_photo3" Type="nvarchar(max)" />
+          <Property Name="chemin_photo_principale" Type="nvarchar(max)" />
+          <Property Name="is_payed" Type="varchar" MaxLength="1" />
+          <Property Name="numero_telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_valid" Type="nvarchar" MaxLength="1" />
+          <Property Name="validated_at" Type="datetime" />
+          <Property Name="validated_by" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="typerealstat_table">
+          <Key>
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_ar" Type="nvarchar" MaxLength="50" />
+          <Property Name="type_fr" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_realestat_table_typerealstat_table">
+          <End Role="typerealstat_table" Type="Self.typerealstat_table" Multiplicity="0..1" />
+          <End Role="realestat_table" Type="Self.realestat_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typerealstat_table">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="realestat_table">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tmp_realestat_table_typerealstat_table">
+          <End Role="typerealstat_table" Type="Self.typerealstat_table" Multiplicity="0..1" />
+          <End Role="tmp_realestat_table" Type="Self.tmp_realestat_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typerealstat_table">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="tmp_realestat_table">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="realestats_dbModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="realestat_table" EntityType="Self.realestat_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tmp_realestat_table" EntityType="Self.tmp_realestat_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="typerealstat_table" EntityType="Self.typerealstat_table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_realestat_table_typerealstat_table" Association="Self.FK_realestat_table_typerealstat_table">
+            <End Role="typerealstat_table" EntitySet="typerealstat_table" />
+            <End Role="realestat_table" EntitySet="realestat_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tmp_realestat_table_typerealstat_table" Association="Self.FK_tmp_realestat_table_typerealstat_table">
+            <End Role="typerealstat_table" EntitySet="typerealstat_table" />
+            <End Role="tmp_realestat_table" EntitySet="tmp_realestat_table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="realestats_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="realestats_dbEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="AspNetUserClaims" EntityType="realestats_dbModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="realestats_dbModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="realestats_dbModel.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="realestats_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="realestats_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <EntitySet Name="AspNetRoles" EntityType="realestats_dbModel.AspNetRole" />
+          <EntitySet Name="typerealstat_table" EntityType="realestats_dbModel.typerealstat_table" />
+          <AssociationSet Name="AspNetUserRoles" Association="realestats_dbModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="realestat_table" EntityType="realestats_dbModel.realestat_table" />
+          <EntitySet Name="tmp_realestat_table" EntityType="realestats_dbModel.tmp_realestat_table" />
+          <AssociationSet Name="FK_realestat_table_typerealstat_table" Association="realestats_dbModel.FK_realestat_table_typerealstat_table">
+            <End Role="typerealstat_table" EntitySet="typerealstat_table" />
+            <End Role="realestat_table" EntitySet="realestat_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tmp_realestat_table_typerealstat_table" Association="realestats_dbModel.FK_tmp_realestat_table_typerealstat_table">
+            <End Role="typerealstat_table" EntitySet="typerealstat_table" />
+            <End Role="tmp_realestat_table" EntitySet="tmp_realestat_table" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="realestats_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="realestats_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="realestats_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="realestats_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="realestats_dbModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="realestats_dbModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="realestats_dbModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="realestats_dbModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="realestats_dbModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="realestats_dbModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="typerealstat_table">
+          <Key>
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_ar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type_fr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="realestat_table" Relationship="realestats_dbModel.FK_realestat_table_typerealstat_table" FromRole="typerealstat_table" ToRole="realestat_table" />
+          <NavigationProperty Name="tmp_realestat_table" Relationship="realestats_dbModel.FK_tmp_realestat_table_typerealstat_table" FromRole="typerealstat_table" ToRole="tmp_realestat_table" />
+        </EntityType>
+        <Association Name="AspNetUserRoles">
+          <End Type="realestats_dbModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="realestats_dbModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="realestat_table">
+          <Key>
+            <PropertyRef Name="id_realestat" />
+          </Key>
+          <Property Name="id_realestat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="libelle_realestat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description_realestat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="added_at" Type="DateTime" Precision="3" />
+          <Property Name="update_at" Type="DateTime" Precision="3" />
+          <Property Name="location_realestat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="added_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="photo_realestat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_type" Type="Int32" />
+          <Property Name="chemin_photo1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chemin_photo2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chemin_photo3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chemin_photo_principale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_payed" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="numero_telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_valid" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="validated_at" Type="DateTime" Precision="3" />
+          <Property Name="validated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="typerealstat_table" Relationship="realestats_dbModel.FK_realestat_table_typerealstat_table" FromRole="realestat_table" ToRole="typerealstat_table" />
+        </EntityType>
+        <EntityType Name="tmp_realestat_table">
+          <Key>
+            <PropertyRef Name="id_realestat" />
+          </Key>
+          <Property Name="id_realestat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="libelle_realestat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description_realestat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="added_at" Type="DateTime" Precision="3" />
+          <Property Name="update_at" Type="DateTime" Precision="3" />
+          <Property Name="location_realestat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="added_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="photo_realestat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_type" Type="Int32" />
+          <Property Name="chemin_photo1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chemin_photo2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chemin_photo3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chemin_photo_principale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_payed" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="numero_telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="is_valid" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="validated_at" Type="DateTime" Precision="3" />
+          <Property Name="validated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="typerealstat_table" Relationship="realestats_dbModel.FK_tmp_realestat_table_typerealstat_table" FromRole="tmp_realestat_table" ToRole="typerealstat_table" />
+        </EntityType>
+        <Association Name="FK_realestat_table_typerealstat_table">
+          <End Type="realestats_dbModel.typerealstat_table" Role="typerealstat_table" Multiplicity="0..1" />
+          <End Type="realestats_dbModel.realestat_table" Role="realestat_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typerealstat_table">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="realestat_table">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tmp_realestat_table_typerealstat_table">
+          <End Type="realestats_dbModel.typerealstat_table" Role="typerealstat_table" Multiplicity="0..1" />
+          <End Type="realestats_dbModel.tmp_realestat_table" Role="tmp_realestat_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typerealstat_table">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="tmp_realestat_table">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="realestats_dbModelStoreContainer" CdmEntityContainer="realestats_dbEntities" >
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="realestats_dbModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="realestats_dbModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="realestats_dbModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="realestats_dbModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typerealstat_table">
+            <EntityTypeMapping TypeName="realestats_dbModel.typerealstat_table">
+              <MappingFragment StoreEntitySet="typerealstat_table">
+                <ScalarProperty Name="type_fr" ColumnName="type_fr" />
+                <ScalarProperty Name="type_ar" ColumnName="type_ar" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="realestats_dbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="realestat_table">
+            <EntityTypeMapping TypeName="realestats_dbModel.realestat_table">
+              <MappingFragment StoreEntitySet="realestat_table">
+                <ScalarProperty Name="validated_by" ColumnName="validated_by" />
+                <ScalarProperty Name="validated_at" ColumnName="validated_at" />
+                <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+                <ScalarProperty Name="numero_telephone" ColumnName="numero_telephone" />
+                <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+                <ScalarProperty Name="chemin_photo_principale" ColumnName="chemin_photo_principale" />
+                <ScalarProperty Name="chemin_photo3" ColumnName="chemin_photo3" />
+                <ScalarProperty Name="chemin_photo2" ColumnName="chemin_photo2" />
+                <ScalarProperty Name="chemin_photo1" ColumnName="chemin_photo1" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="id_publisher" ColumnName="id_publisher" />
+                <ScalarProperty Name="photo_realestat" ColumnName="photo_realestat" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="location_realestat" ColumnName="location_realestat" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+                <ScalarProperty Name="added_at" ColumnName="added_at" />
+                <ScalarProperty Name="description_realestat" ColumnName="description_realestat" />
+                <ScalarProperty Name="libelle_realestat" ColumnName="libelle_realestat" />
+                <ScalarProperty Name="id_realestat" ColumnName="id_realestat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tmp_realestat_table">
+            <EntityTypeMapping TypeName="realestats_dbModel.tmp_realestat_table">
+              <MappingFragment StoreEntitySet="tmp_realestat_table">
+                <ScalarProperty Name="validated_by" ColumnName="validated_by" />
+                <ScalarProperty Name="validated_at" ColumnName="validated_at" />
+                <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+                <ScalarProperty Name="numero_telephone" ColumnName="numero_telephone" />
+                <ScalarProperty Name="is_payed" ColumnName="is_payed" />
+                <ScalarProperty Name="chemin_photo_principale" ColumnName="chemin_photo_principale" />
+                <ScalarProperty Name="chemin_photo3" ColumnName="chemin_photo3" />
+                <ScalarProperty Name="chemin_photo2" ColumnName="chemin_photo2" />
+                <ScalarProperty Name="chemin_photo1" ColumnName="chemin_photo1" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="id_publisher" ColumnName="id_publisher" />
+                <ScalarProperty Name="photo_realestat" ColumnName="photo_realestat" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="location_realestat" ColumnName="location_realestat" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+                <ScalarProperty Name="added_at" ColumnName="added_at" />
+                <ScalarProperty Name="description_realestat" ColumnName="description_realestat" />
+                <ScalarProperty Name="libelle_realestat" ColumnName="libelle_realestat" />
+                <ScalarProperty Name="id_realestat" ColumnName="id_realestat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

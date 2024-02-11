@@ -1,0 +1,154 @@
+﻿@model IEnumerable<CORE.DtoRealEstat>
+
+@{
+    ViewBag.Title = "ValidatePublications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ValidatePublications</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.added_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.update_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle_type_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo_realestat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_publisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cheminPhotoPrincipale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cheminPhoto1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cheminPhoto2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cheminPhoto3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_payed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero_telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_valid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.validated_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.validated_by)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.libelle_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.added_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.update_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.libelle_type_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo_realestat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_publisher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cheminPhotoPrincipale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cheminPhoto1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cheminPhoto2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cheminPhoto3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_payed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero_telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_valid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.validated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.validated_by)
+        </td>
+        <td>
+            @Html.ActionLink("Validate","سماح", new {  id=item.id_realestat  }) |
+            @Html.ActionLink("Delete", "مسح", new {  id=item.id_realestat  })
+
+        </td>
+    </tr>
+}
+
+</table>

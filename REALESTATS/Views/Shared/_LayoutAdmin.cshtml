@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+ 
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Amnir</title>
+
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" href="~/template/css/bootstrap.min.css" />
+
+        <!-- Slick -->
+        <link type="text/css" rel="stylesheet" href="~/template/css/slick.css" />
+        <link type="text/css" rel="stylesheet" href="~/template/css/slick-theme.css" />
+
+        <!-- nouislider -->
+        <link type="text/css" rel="stylesheet" href="~/template/css/nouislider.min.css" />
+
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="~/template/css/font-awesome.min.css">
+
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="~/template/css/style.css" />
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        <link type="text/css" rel="stylesheet" href="~/template/alertifyjs/css/alertify.rtl.css" />
+        <link type="text/css" rel="stylesheet" href="~/template/alertifyjs/css/alertify.css" />
+
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header>
+            <!-- TOP HEADER -->
+            <div id="top-header">
+                <div class="container">
+                    <ul class="header-links pull-left">
+
+                        <li class="navbar-brand"><img src="~/template/img/fallhouse.png" width="160" height="30" class="img-responsive" /></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a href="/Home/Create"><i class="fa fa-plus"></i> إضافة منشور </a></li>
+                            <li><a href="/Administration/ValidatePublications"><i class="fa fa-plus"></i>  إدارة المنشورات </a></li>
+                            <li><a href="/Administration/Users"><i class="fa fa-plus"></i>  إدارة المستخدمين </a></li>
+
+
+                        }
+
+                        <li><a href="/Administration/Index"><i class="fa fa-home"> </i> الصفحة الرئيسية </a></li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+            </div>
+            <!-- /TOP HEADER -->
+            <!-- MAIN HEADER -->
+            <!--<div id="header">-->
+                <!-- container -->
+                <!--<div class="container">-->
+                    <!-- row -->
+                    <!--<div class="row">-->
+                        <!-- LOGO -->
+                        <!--<div class="col-md-3">
+                            <div class="header-logo">
+                                <a href="#" class="logo">
+                                    <img src="./img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>-->
+                        <!-- /LOGO -->
+                        <!-- SEARCH BAR -->
+                        <!--<div class="col-md-6">
+                            <div class="header-search">
+                                <form>
+                                    <select class="input-select">
+                                        <option value="0">All Categories</option>
+                                        <option value="1">Category 01</option>
+                                        <option value="1">Category 02</option>
+                                    </select>
+                                    <input class="input" placeholder="Search here">
+                                    <button class="search-btn">Search</button>
+                                </form>
+                            </div>
+                        </div>-->
+                        <!-- /SEARCH BAR -->
+                        <!-- ACCOUNT -->
+                        <!-- /ACCOUNT -->
+                    <!--</div>-->
+                    <!-- row -->
+                <!--</div>-->
+                <!-- container -->
+            <!--</div>-->
+            <!-- /MAIN HEADER -->
+        </header>
+        <!-- /HEADER -->
+       
+        <!-- SECTION -->
+        <div class="section">
+
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    @RenderBody()
+
+
+                </div>
+
+            </div>
+        </div>
+        
+                <!-- /SECTION -->
+                <!-- jQuery Plugins -->
+                <script src="~/template/js/jquery.min.js"></script>
+                <script src="~/template/js/bootstrap.min.js"></script>
+                <script src="~/template/js/slick.min.js"></script>
+                <script src="~/template/js/nouislider.min.js"></script>
+                <script src="~/template/js/jquery.zoom.min.js"></script>
+                <script src="~/template/js/main.js"></script>
+                 <script src="~/template/alertifyjs/alertify.js"></script>
+
+         
+                @RenderSection("scripts", required: false)
+</body>
+</html>

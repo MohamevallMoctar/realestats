@@ -1,0 +1,14 @@
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\DAL.dll.config
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\DAL.dll
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\DAL.pdb
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\EntityFramework.dll
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\EntityFramework.xml
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\obj\Debug\DAL.dll
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\obj\Debug\DAL.pdb
+C:\Users\wafasoft\source\repos\REALESTATS\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

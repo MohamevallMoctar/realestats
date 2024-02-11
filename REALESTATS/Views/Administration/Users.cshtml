@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CORE.DtoUser>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resource.LinkManageUsers</h2>
+
+<p>
+
+    <a href="/Account/Register" class="btn-rnd"> <i class="fa fa-plus">    </i>   @Resource.AddAction</a>
+</p>
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Resource.ID
+            </th>
+            <th>
+                @Resource.libelleHeaderUser
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.role)
+        </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    
+    <btody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_user)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userName)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>*@
+                <td>
+                    @*@Html.ActionLink("Edit", "Manage", new {  ID=item.id_user }, new { @class = "btn-rnd"  })*@
+                    @*|
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+        }
+
+    </btody>
+</table>

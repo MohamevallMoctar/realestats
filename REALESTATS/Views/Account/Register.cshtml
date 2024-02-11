@@ -1,0 +1,74 @@
+﻿@model REALESTATS.Models.RegisterViewModel
+@{
+    ViewBag.Title = "S'inscrire";
+}
+
+<h2>
+</h2>
+<div class="col-lg-6 col-lg-offset-3">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>إنشاء حساب جديد</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.NumeroTelephone, new { @class = "form-control" })
+            </div>
+            <label class="control-label-ar col-md-2">
+                رقم الهاتف
+            </label>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <select name="Role" class="form-control">
+                    <option value="Admin">مدير</option>
+                    <option value="User">مستخدم عادي </option>
+                </select>
+            </div>
+            <label class="control-label-ar col-md-2">
+                نوع المستخدم
+            </label>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+            <label class="control-label-ar col-md-2">
+                كلمة المرور
+            </label>
+        </div>
+
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+            <label class="control-label-ar col-md-2">
+                تأكيد كلمة المرور
+            </label>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 add-to-cart">
+                <button type="submit" class="btn-rnd-success " value="تسجيل "> <span class="fa fa-pencil"></span>تسجيل</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+<a href="/Administration/Users"> @Resource.ReturnAction  </a>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
